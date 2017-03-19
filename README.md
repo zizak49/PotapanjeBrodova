@@ -11,8 +11,8 @@ Igra koju igraju 2 igrača koji pogađaju lokacije protivničke flote.
 3. Prvo stavlja najdulji brod (duljine 5).
 4. Nakon toga stavlja brod duljine četiri polja tako da se njegova
    polja ne smiju preklapati niti dodirivati s drugim brodovima.
-5. Ponavlja korak 4 za preostale brodove (još jedna duljine 4, 3 
-   broda duljine 3 i 4 broda duljine 2)
+5. Ponavlja korak 4 za preostale brodove (još jedan brod duljine 4,
+   3 broda duljine 3 i 4 broda duljine 2)
 6. Nakon što su posložili sve brodove započinje sama igra.
 7. Prvi igrač proizvoljno bira polje na protivničkoj mreži i 
    pita protivničkog igrača za polje sa zadanim koordinatama. 
