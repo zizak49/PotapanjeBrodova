@@ -81,5 +81,33 @@ namespace Test
                 Assert.Fail();
             }
         }
+
+        [TestMethod]
+        public void Mreža_DajNizovePoljaVraća3NizaZaBrodDuljine3UHorizontalnomRetkuDuljine5()
+        {
+            Mreža m = new Mreža(1, 5);
+            Assert.AreEqual(3, m.DajNizoveSlobodnihPolja(3).Count());
+        }
+
+        [TestMethod]
+        public void Mreža_DajNizovePoljaVraćaPrazanNizZaBrodDuljine5UHorizontalnomRetkuDuljine4()
+        {
+            Mreža m = new Mreža(1, 4);
+            Assert.AreEqual(0, m.DajNizoveSlobodnihPolja(5).Count());
+        }
+
+        [TestMethod]
+        public void Mreža_DajNizovePoljaVraća3NizaZaBrodDuljine3UVertikalnomStupcuDuljine5()
+        {
+            Mreža m = new Mreža(5, 1);
+            Assert.AreEqual(3, m.DajNizoveSlobodnihPolja(3).Count());
+        }
+
+        [TestMethod]
+        public void Mreža_DajNizovePoljaVraćaPrazanNizZaBrodDuljine5UVertikalnomStupcuDuljine4()
+        {
+            Mreža m = new Mreža(4, 1);
+            Assert.AreEqual(0, m.DajNizoveSlobodnihPolja(5).Count());
+        }
     }
 }
