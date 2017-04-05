@@ -21,5 +21,10 @@ namespace PotapanjeBrodova
         {
             return Redak == other.Redak && Stupac == other.Stupac; 
         }
+
+        internal int Count()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

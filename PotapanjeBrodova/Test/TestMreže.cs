@@ -67,7 +67,36 @@ namespace Test
             {
                 Assert.Fail();
             }
-
         }
+
+        [TestMethod]
+        public void Mreža_DajNizovePoljaVraća3NizaZaBrodoveuHorz5()
+        {
+           Mreža m = new Mreža(1, 5);
+           Assert.AreEqual (3,m.DajNizoveSlobodnihPolja(3).count());
+        }
+
+        [TestMethod]
+        public void Mreža_DajNizovePoljaVraća3NizaZaBrodoveuHorzduljune4()
+        {
+            Mreža m = new Mreža(1, 4);
+            Assert.AreEqual(3, m.DajNizoveSlobodnihPolja(5).count());
+        }
+
+        [TestMethod]
+        public void Mreža_DajNizovePoljaVraća3NizaZaBrodoveuVertikalno5()
+        {
+            Mreža m = new Mreža(5, 1);
+            Assert.AreEqual(3, m.DajNizoveSlobodnihPolja(3).count());
+        }
+
+        [TestMethod]
+        public void Mreža_DajNizovePoljaVraća3NizaZaBrodoveuVertikalnozduljune4()
+        {
+            Mreža m = new Mreža(4, 1);
+            Assert.AreEqual(3, m.DajNizoveSlobodnihPolja(5).count());
+        }
+
     }
-}
+    }
+
