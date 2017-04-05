@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PotapanjeBrodova
 {
@@ -11,7 +10,7 @@ namespace PotapanjeBrodova
         public Polje(int redak, int stupac)
         {
             Redak = redak;
-            Stupac = stupac;    
+            Stupac = stupac;
         }
 
         public readonly int Redak;
@@ -19,12 +18,7 @@ namespace PotapanjeBrodova
 
         public bool Equals(Polje other)
         {
-            return Redak == other.Redak && Stupac == other.Stupac; 
-        }
-
-        internal int Count()
-        {
-            throw new NotImplementedException();
+            return Redak == other.Redak && Stupac == other.Stupac;
         }
     }
 }
