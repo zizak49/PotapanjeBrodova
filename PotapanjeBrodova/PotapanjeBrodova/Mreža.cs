@@ -56,9 +56,7 @@ namespace PotapanjeBrodova
                 yield return i;
         }
 
-        private List<IEnumerable<Polje>> DajNizSlobodnihPolja(int duljinaNiza, 
-            IEnumerable<int> vanjskiIndeks, IEnumerable<int> nutarnjiIndeks,
-            Func<int, int, Polje> dohvatPolja)
+        private List<IEnumerable<Polje>> DajNizoveSlobodnihPolja(int duljinaNiza, IEnumerable<int> vanjskiIndeks, IEnumerable<int> nutarnjiIndeks, Func<int, int, Polje> dohvatPolja)
         {
             List<IEnumerable<Polje>> nizovi = new List<IEnumerable<Polje>>();
             foreach (int i in vanjskiIndeks)
@@ -82,13 +80,13 @@ namespace PotapanjeBrodova
 
         private List<IEnumerable<Polje>> DajNizoveSlobodnihPoljaUHorizontalnomSmjeru(int duljinaNiza)
         {
-            return DajNizSlobodnihPolja(duljinaNiza, DajNizBrojeva(redaka), DajNizBrojeva(stupaca),
+            return DajNizoveSlobodnihPolja(duljinaNiza, DajNizBrojeva(redaka), DajNizBrojeva(stupaca),
                 (i, j) => polja[i, j]);
         }
 
         private List<IEnumerable<Polje>> DajNizoveSlobodnihPoljaUVertikalnomSmjeru(int duljinaNiza)
         {
-            return DajNizSlobodnihPolja(duljinaNiza, DajNizBrojeva(stupaca), DajNizBrojeva(redaka),
+            return DajNizoveSlobodnihPolja(duljinaNiza, DajNizBrojeva(stupaca), DajNizBrojeva(redaka),
                 (i, j) => polja[j, i]);
         }
 
