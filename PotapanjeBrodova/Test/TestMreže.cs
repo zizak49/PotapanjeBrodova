@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PotapanjeBrodova;
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Test
 {
@@ -15,15 +14,6 @@ namespace Test
         {
             Mreža m = new Mreža(5, 5);
             Assert.AreEqual(25, m.DajSlobodnaPolja().Count());
-        }
-
-        [TestMethod]
-        public void Mreža_DajSlobodnaPoljaVraća24PoljaZaMrežu5x5NakonJednogUklonjenogPoljaZadanogRetkomIStupcem()
-        {
-            Mreža m = new Mreža(5, 5);
-            m.UkloniPolje(1, 1);
-            Assert.AreEqual(24, m.DajSlobodnaPolja().Count());
-            Assert.IsFalse(m.DajSlobodnaPolja().Contains(new Polje(1, 1)));
         }
 
         [TestMethod]
