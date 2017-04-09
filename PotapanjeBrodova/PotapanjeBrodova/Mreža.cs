@@ -9,8 +9,8 @@ namespace PotapanjeBrodova
     {
         public Mreža(int redaka, int stupaca)
         {
-            this.redaka = redaka;
-            this.stupaca = stupaca;
+            Redaka = redaka;
+            Stupaca = stupaca;
             polja = new Polje[redaka, stupaca];
             for (int r = 0; r < redaka; ++r)
             {
@@ -22,9 +22,9 @@ namespace PotapanjeBrodova
         public IEnumerable<Polje> DajSlobodnaPolja()
         {
             List<Polje> p = new List<Polje>();
-            for (int r = 0; r < redaka; ++r)
+            for (int r = 0; r < Redaka; ++r)
             {
-                for (int s = 0; s < stupaca; ++s)
+                for (int s = 0; s < Stupaca; ++s)
                 {
                     if (polja[r, s] != null)
                         p.Add(polja[r, s]);
@@ -80,18 +80,17 @@ namespace PotapanjeBrodova
 
         private List<IEnumerable<Polje>> DajNizoveSlobodnihPoljaUHorizontalnomSmjeru(int duljinaNiza)
         {
-            return DajNizoveSlobodnihPolja(duljinaNiza, DajNizBrojeva(redaka), DajNizBrojeva(stupaca),
-                (i, j) => polja[i, j]);
+            return DajNizoveSlobodnihPolja(duljinaNiza, DajNizBrojeva(Redaka), DajNizBrojeva(Stupaca), (i, j) => polja[i, j]);
         }
 
         private List<IEnumerable<Polje>> DajNizoveSlobodnihPoljaUVertikalnomSmjeru(int duljinaNiza)
         {
-            return DajNizoveSlobodnihPolja(duljinaNiza, DajNizBrojeva(stupaca), DajNizBrojeva(redaka),
-                (i, j) => polja[j, i]);
+            return DajNizoveSlobodnihPolja(duljinaNiza, DajNizBrojeva(Stupaca), DajNizBrojeva(Redaka), (i, j) => polja[j, i]);
         }
 
         private Polje[,] polja;
-        private int redaka;
-        private int stupaca;
+
+        public readonly int Redaka;
+        public readonly int Stupaca;
     }
 }
