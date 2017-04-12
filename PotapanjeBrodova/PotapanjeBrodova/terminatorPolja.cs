@@ -5,9 +5,9 @@ using System.Text;
 
 namespace PotapanjeBrodova
 {
-     public class terminatorPolja
+     public class TerminatorPolja
     {
-        public terminatorPolja(Mreža mreža)
+        public TerminatorPolja(Mreža mreža)
         {
             this.mreža = mreža;
         }
@@ -16,6 +16,6 @@ namespace PotapanjeBrodova
             //
             //mreže.UkloniPolje(r, s);
         }
-        private Mreža mreže;
+        private Mreža mreža;
     }
 }
