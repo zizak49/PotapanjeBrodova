@@ -8,7 +8,7 @@ namespace Test
     public class TestFlote
     {
         [TestMethod]
-        public void Flota_DodajBrodPovecavaFlotuZaJedanBrod()
+        public void Flota_DodajBrodPovećavaFlotuZaJedanBrod()
         {
             Flota flota = new Flota();
             Assert.AreEqual(0, flota.BrojBrodova);
