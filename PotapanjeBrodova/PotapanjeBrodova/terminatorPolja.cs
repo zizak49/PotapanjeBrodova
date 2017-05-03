@@ -5,12 +5,13 @@ using System.Text;
 
 namespace PotapanjeBrodova
 {
-     public class TerminatorPolja
+    public class TerminatorPolja
     {
         public TerminatorPolja(Mreža mreža)
         {
             this.mreža = mreža;
         }
+
         public void UkloniPolja(IEnumerable<Polje> polja)
         {
             IEnumerable<Polje> sortirana = polja.Sortiraj();
@@ -22,6 +23,7 @@ namespace PotapanjeBrodova
                 for (int s = s0; s < s1; ++s)
                     mreža.UkloniPolje(r, s);
         }
+
         private Mreža mreža;
     }
 }
