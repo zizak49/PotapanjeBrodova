@@ -12,6 +12,7 @@ namespace PotapanjeBrodova
             Polja = polja;
         }
 
+
         public RezultatGađanja Gađaj(Polje polje)
         {
             if (!Polja.Contains(polje))
@@ -23,7 +24,6 @@ namespace PotapanjeBrodova
         }
 
         private HashSet<Polje> pogođenaPolja = new HashSet<Polje>();
-
         public readonly IEnumerable<Polje> Polja;
     }
 }

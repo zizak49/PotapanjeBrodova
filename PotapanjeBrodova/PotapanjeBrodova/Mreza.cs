@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PotapanjeBrodova
 {
-    public class Mreža
+    public class Mreza
     {
-        public Mreža(int redaka, int stupaca)
+        private Polje[,] polje;
+        public readonly int redaka, stupaca;
+
+        public Mreza(int redaka, int stupaca)
         {
             this.redaka = redaka;
             this.stupaca = stupaca;
-            polja = new Polje[redaka, stupaca];
+            polje = new Polje[redaka, stupaca];
             for (int r = 0; r < redaka; ++r)
             {
                 for (int s = 0; s < stupaca; ++s)
-                    polja[r, s] = new Polje(r, s);
+                    polje[r, s] = new Polje(r, s);
             }
         }
 
@@ -26,8 +30,8 @@ namespace PotapanjeBrodova
             {
                 for (int s = 0; s < stupaca; ++s)
                 {
-                    if (polja[r, s] != null)
-                        p.Add(polja[r, s]);
+                    if (polje[r, s] != null)
+                        p.Add(polje[r, s]);
                 }
             }
             return p;
@@ -35,7 +39,7 @@ namespace PotapanjeBrodova
 
         public void UkloniPolje(int redak, int stupac)
         {
-            polja[redak, stupac] = null;
+            polje[redak, stupac] = null;
         }
 
         public void UkloniPolje(Polje p)
@@ -50,26 +54,23 @@ namespace PotapanjeBrodova
             return nizovi;
         }
 
-
-
         IEnumerable<int> DajNizBrojeva(int maxVrijednost)
         {
-            for (int i =0; i<maxVrijednost;++i)
+            for (int i = 0; i < maxVrijednost; ++i)
             {
                 yield return i;
             }
         }
 
-        private List<IEnumerable<Polje>> DajNizSlobodnihPolja(int duljinaNiza, IEnumerable<int> vanjskiIndeks,IEnumerable<int> nutarnjiIndeks, Func<int,int,Polje> dohvatPolja)
-        { 
-
+        private List<IEnumerable<Polje>> DajNizSlobodnihPolja(int duljinaNiza, IEnumerable<int> vanjskiIndeks, IEnumerable<int> unutarnjiIndeks, Func<int, int, Polje> dohvatPolja)
+        {
             List<IEnumerable<Polje>> nizovi = new List<IEnumerable<Polje>>();
             foreach (int i in vanjskiIndeks)
             {
                 RedFiksneDuljine<Polje> red = new RedFiksneDuljine<Polje>(duljinaNiza);
-                foreach (int j in nutarnjiIndeks)
+                foreach (int j in unutarnjiIndeks)
                 {
-                    Polje polje = dohvatPolja(i,j);
+                    Polje polje = dohvatPolja(i, j);
                     if (polje == null)
                         red.Clear();
                     else
@@ -85,18 +86,14 @@ namespace PotapanjeBrodova
 
         private List<IEnumerable<Polje>> DajNizoveSlobodnihPoljaUHorizontalnomSmjeru(int duljinaNiza)
         {
-            return DajNizSlobodnihPolja(duljinaNiza, DajNizBrojeva(redaka), DajNizBrojeva(stupaca),(i,j)=>polja[i,j]);
+            return DajNizSlobodnihPolja(duljinaNiza, DajNizBrojeva(redaka), DajNizBrojeva(stupaca), (i, j) => polje[i, j]);
         }
 
         private List<IEnumerable<Polje>> DajNizoveSlobodnihPoljaUVertikalnomSmjeru(int duljinaNiza)
         {
-            return DajNizSlobodnihPolja(duljinaNiza, DajNizBrojeva(stupaca), DajNizBrojeva(redaka), (i, j) => polja[j, i]);
+            return DajNizSlobodnihPolja(duljinaNiza, DajNizBrojeva(stupaca), DajNizBrojeva(redaka), (i, j) => polje[j, i]);
         }
 
 
-        private Polje[,] polja;
-
-        public readonly int redaka;
-        public readonly int stupaca;
     }
 }
