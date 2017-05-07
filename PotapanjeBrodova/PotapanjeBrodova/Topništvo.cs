@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace PotapanjeBrodova
 {
@@ -13,19 +12,16 @@ namespace PotapanjeBrodova
         Kružno,
         Linijsko
     }
+
     public class Topništvo
     {
-        private Mreza mreža;
-        private List<int> duljineBrodova;
-
-
-        public TaktikaGađanja TaktikaGađanja { get; private set; }
-        public Topništvo(int redak, int stupac, IEnumerable<int> duljineBrodova)
+        public Topništvo(int redaka, int stupaca, IEnumerable<int> duljineBrodova)
         {
-            mreža = new Mreza(redak, stupac);
+            mreža = new Mreža(redaka, stupaca);
             this.duljineBrodova = new List<int>(duljineBrodova);
             TaktikaGađanja = TaktikaGađanja.Nasumično;
         }
+
         public void ObradiGađanje(RezultatGađanja rezultat)
         {
             if (rezultat == RezultatGađanja.Promašaj)
@@ -35,34 +31,40 @@ namespace PotapanjeBrodova
                 switch (TaktikaGađanja)
                 {
                     case TaktikaGađanja.Nasumično:
-                        PromjeniTaktikuUKružno();
+                        PromijeniTaktikuUKružno();
                         return;
                     case TaktikaGađanja.Kružno:
-                        PromjeniTaktikuULinijsko();
+                        PromijeniTaktikuULinijsko();
                         return;
                     case TaktikaGađanja.Linijsko:
                         return;
                     default:
                         Debug.Assert(false);
                         break;
-
                 }
             }
             Debug.Assert(rezultat == RezultatGađanja.Potopljen);
-            PromjeniTaktikuUNasumično();
-
+            PromijeniTaktikuUNasumično();
         }
-        void PromjeniTaktikuUKružno()
+
+        private void PromijeniTaktikuUKružno()
         {
             TaktikaGađanja = TaktikaGađanja.Kružno;
         }
-        void PromjeniTaktikuULinijsko()
+
+        private void PromijeniTaktikuULinijsko()
         {
             TaktikaGađanja = TaktikaGađanja.Linijsko;
         }
-        void PromjeniTaktikuUNasumično()
+
+        private void PromijeniTaktikuUNasumično()
         {
             TaktikaGađanja = TaktikaGađanja.Nasumično;
         }
+
+        public TaktikaGađanja TaktikaGađanja { get; private set; }
+
+        private Mreža mreža;
+        private List<int> duljineBrodova;
     }
 }

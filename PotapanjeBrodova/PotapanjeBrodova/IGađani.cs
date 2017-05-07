@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace PotapanjeBrodova
+﻿namespace PotapanjeBrodova
 {
     public enum RezultatGađanja
     {
@@ -11,6 +6,7 @@ namespace PotapanjeBrodova
         Pogodak,
         Potopljen
     }
+
     public interface IGađani
     {
         RezultatGađanja Gađaj(Polje polje);

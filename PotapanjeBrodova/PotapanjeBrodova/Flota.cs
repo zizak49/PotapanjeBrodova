@@ -12,11 +12,6 @@ namespace PotapanjeBrodova
             brodovi.Add(new Brod(polja));
         }
 
-        public int BrojBrodova
-        {
-            get { return brodovi.Count; }
-        }
-
         public RezultatGađanja Gađaj(Polje polje)
         {
             foreach (Brod brod in brodovi)
@@ -28,6 +23,11 @@ namespace PotapanjeBrodova
             return RezultatGađanja.Promašaj;
         }
 
-        public List<Brod> brodovi = new List<Brod>();
+        public int BrojBrodova
+        {
+            get { return brodovi.Count; }
+        }
+
+        private List<Brod> brodovi = new List<Brod>();
     }
 }
