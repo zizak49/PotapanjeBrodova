@@ -7,6 +7,14 @@ namespace PotapanjeBrodova
 {
     public class LinijskiPucač : IPucač
     {
+        public IEnumerable<Polje> PogođenaPolja
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public Polje Gađaj()
         {
             throw new NotImplementedException();

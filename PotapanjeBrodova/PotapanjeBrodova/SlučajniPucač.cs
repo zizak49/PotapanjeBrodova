@@ -24,5 +24,13 @@ namespace PotapanjeBrodova
         }
         private Mreža mreža;
         private int duljinaBroda;
+
+        public IEnumerable<Polje> PogođenaPolja
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }
